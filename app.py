@@ -361,7 +361,7 @@ def create_cancion(album_id):
         buscar_track = Cancion.query.filter_by(album_id=album_id).all()
         all = []
         for i in buscar_track:
-            dicc={'id' : i.id, 'album_id': i.album_id, 'name': i.name, 'duration' : i.duration, 'artist' : i.artist, 'album': i.album, 'self': i.self_url}
+            dicc={'id' : i.id, 'name': i.name, 'duration' : i.duration, 'album_id': i.album_id, 'times_played':i.times_played, 'artist': i.artist, 'album': i.album, 'self': i.self_url}
             print('info_track', i.album_id, i.name)
             print('/n\n')
             all.append(dicc)
