@@ -151,7 +151,7 @@ def create_artist2(artist_id):
     k = Artista.query.get(artist_id)
     if k == None:
         data = 'artista no existe'
-        return json.dumps(data, ensure_ascii=False), 422
+        return json.dumps(data, ensure_ascii=False), 404
     else:
         dicc = {'id':k.id, 'name':k.name, 'age':k.age, 'albums':k.album, 'tracks':k.tracks, 'self':k.self_url}
         return json.dumps(dicc, ensure_ascii=False), 200
@@ -212,7 +212,7 @@ def create_album(artist_id):
     k = Artista.query.get(artist_id)
     if k == None:
         data = 'artista no encontrado'
-        return json.dumps(data, ensure_ascii=False), 422
+        return json.dumps(data, ensure_ascii=False), 404
     else:
         buscar_album = Album.query.filter_by(artist_id=artist_id).all()
         all = []
@@ -437,7 +437,7 @@ def obtener_artis_track(artist_id):
     k = Artista.query.get(artist_id)
     if k == None:
         data = 'artista no encontrado'
-        return json.dumps(data, ensure_ascii=False), 422
+        return json.dumps(data, ensure_ascii=False), 404
     else:
         lista_albumes = Album.query.filter_by(artist_id=artist_id).all()
         tracks = []
