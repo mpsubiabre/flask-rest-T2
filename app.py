@@ -83,6 +83,10 @@ def create_artist():
     print(request.method)
     print(request.is_json)
     data = request.get_json()
+    print(len(data))
+    if len(data)!=2:
+        data = 'input inválido'
+        return json.dumps(data, ensure_ascii=False), 400
     key = data.keys()
     llaves = []
     for i in key:
