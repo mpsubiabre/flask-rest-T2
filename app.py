@@ -118,6 +118,8 @@ def create_artist():
         db.session.add(artista)
         db.session.commit()
         data = 'artista creado'
+        i = Artista.query.get(encoded_name)
+        dicc = {'id':i.id, 'name':i.name, 'age':i.age, 'albums':i.album, 'tracks':i.tracks, 'self':i.self_url}
 
     except IntegrityError:
         db.session.rollback()
@@ -129,8 +131,8 @@ def create_artist():
         print("data")
     except KeyError:
         print("data")
-
-    return json.dumps(data,ensure_ascii=False), 200
+    print(dicc)
+    return json.dumps(dicc,ensure_ascii=False), 201
 
 @app.route('/artists', methods=['GET'])
 def get_artistas():
