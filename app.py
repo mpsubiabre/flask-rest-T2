@@ -453,7 +453,7 @@ def get_tracks():
     all = []
     for i in all_tracks:
         #j = jsonify(id = i.id, name=i.name, genre= i.genre, artist= i.artist, tracks=i.tracks, self = i.self_url)  
-        dicc={'id' : i.id, 'album_id': i.album_id, 'name': i.name, 'duration' : i.duration, 'artist' : i.artist, 'album': i.album, 'self': i.self_url}
+        dicc={'id' : i.id, 'name': i.name, 'duration' : i.duration, 'album_id': i.album_id, 'times_played':i.times_played, 'artist': i.artist, 'album': i.album, 'self': i.self_url}
         all.append(dicc)
     print(all)
     print("aca", json.dumps(all))
