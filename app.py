@@ -441,7 +441,7 @@ def obtener_artis_track(artist_id):
             album = Album.query.get(i.id)
             lista_tracks_album = Cancion.query.filter_by(album_id=album.id).all()
             for i in lista_tracks_album:
-                dicc={'id' : i.id, 'album_id': i.album_id, 'name': i.name, 'duration' : i.duration, 'artist' : i.artist, 'album': i.album, 'self': i.self_url}
+                dicc={'id' : i.id, 'name': i.name, 'duration' : i.duration, 'album_id': i.album_id, 'times_played':i.times_played, 'artist': i.artist, 'album': i.album, 'self': i.self_url}
                 tracks.append(dicc)
                 print('nombre :', i.name)    
         return json.dumps(tracks, ensure_ascii=False), 200
