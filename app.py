@@ -288,7 +288,7 @@ def create_album_database(artist_id):
     except KeyError:
         print("data")
     
-    return json.dumps(data, ensure_ascii=False), 201
+    return json.dumps(dicc, ensure_ascii=False), 201
 
 
 @app.route('/albums', methods=['GET'])
