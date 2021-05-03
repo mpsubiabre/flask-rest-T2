@@ -416,7 +416,7 @@ def create_cancion_database(album_id):
         db.session.add(track)
         db.session.commit()
         data = 'canción creada'
-        dicc={'id' : i.id, 'name': i.name, 'duration' : i.duration, 'album_id': i.album_id, 'times_played':i.times_played, 'artist': i.artist, 'album': i.album, 'self': i.self_url}
+        dicc={'id' : track.id, 'name': track.name, 'duration' : track.duration, 'album_id': track.album_id, 'times_played':track.times_played, 'artist': track.artist, 'album': track.album, 'self': track.self_url}
 
     except IntegrityError:
         db.session.rollback()
