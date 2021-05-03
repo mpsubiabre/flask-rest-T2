@@ -125,7 +125,7 @@ def create_artist():
     except KeyError:
         print("data")
 
-    return json.dumps(data), 201
+    return json.dumps(data,ensure_ascii=False), 200
 
 @app.route('/artists', methods=['GET'])
 def get_artistas():
