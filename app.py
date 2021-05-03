@@ -105,9 +105,9 @@ def create_artist():
     encoded_name = b64encode(name.encode()).decode('utf-8')
     encoded_name = cut_codification(encoded_name)
     
-    path_album = '/artists/'+ encoded_name +'/albums'
-    path_track = '/artists/'+ encoded_name +'/tracks'
-    path_self = '/artists/'+ encoded_name
+    path_album = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ encoded_name +'/albums'
+    path_track = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ encoded_name +'/tracks'
+    path_self = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ encoded_name
 
     try:
         artista = Artista(id= encoded_name, name = name, age = age, album = path_album, tracks = path_track, self_url = path_self)
@@ -260,9 +260,9 @@ def create_album_database(artist_id):
     encoded_name = b64encode(codi.encode()).decode('utf-8')
     encoded_name = cut_codification(encoded_name)
 
-    path_artist = '/artists/'+ artist_id
-    path_track = '/albums/'+ encoded_name +'/tracks'
-    path_self = '/artists/'+ artist_id + '/albums'
+    path_artist = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ artist_id
+    path_track = 'https://flask-rest-tarea2.herokuapp.com/albums/'+ encoded_name +'/tracks'
+    path_self = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ artist_id + '/albums'
 
     try:
         album = Album(id= encoded_name, artist_id = artist_id, name = name, genre = genre, artist = path_artist, tracks = path_track, self_url = path_self)
@@ -409,9 +409,9 @@ def create_cancion_database(album_id):
     print(artist_id)
     artist_id = Artista.query.get(artist_id)
     print(artist_id)
-    path_artist = '/artists/'+ artist_id.id
-    path_album = '/artists/'+ album_id 
-    path_self = '/albums/'+ album_id + '/tracks'
+    path_artist = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ artist_id.id
+    path_album = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ album_id 
+    path_self = 'https://flask-rest-tarea2.herokuapp.com/albums/'+ album_id + '/tracks'
     try:
         track = Cancion(id= encoded_name, album_id = album_id, name = name, duration = duration, times_played = times_played, artist = path_artist, album = path_album, self_url = path_self)  
         db.session.add(track)
