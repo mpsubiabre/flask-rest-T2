@@ -69,6 +69,12 @@ def index():
     data = "API REST"
     return json.dumps(data)
 
+@app.route('/', methods=['GET'])
+def index():
+    print('holaa')
+    data = "API REST"
+    return json.dumps(data)
+
 ###################### ARTISTA #############################
 
 
