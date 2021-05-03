@@ -71,7 +71,6 @@ def index():
 
 ###################### ARTISTA #############################
 
-flask-rest-tarea2.herokuapp.com
 
 @app.route('flask-rest-tarea2.herokuapp.com/artists', methods=['POST'])
 def create_artist():
