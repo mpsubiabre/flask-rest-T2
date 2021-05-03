@@ -262,6 +262,11 @@ def create_album_database(artist_id):
     encoded_name = b64encode(codi.encode()).decode('utf-8')
     encoded_name = cut_codification(encoded_name)
 
+    k2 = Album.query.get(encoded_name)
+    if k2 != None:
+        data = 'álbum ya existe'
+        return json.dumps(data, ensure_ascii=False), 409
+
     path_artist = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ artist_id
     path_track = 'https://flask-rest-tarea2.herokuapp.com/albums/'+ encoded_name +'/tracks'
     path_self = 'https://flask-rest-tarea2.herokuapp.com/albums/'+ encoded_name
