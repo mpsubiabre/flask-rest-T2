@@ -416,13 +416,13 @@ def create_cancion_database(album_id):
         db.session.add(track)
         db.session.commit()
         data = 'canción creada'
-        dicc={'id' : i.id, 'album_id': i.album_id, 'name': i.name, 'duration' : i.duration, 'artist' : i.artist, 'album': i.album, 'self': i.self_url}
+        dicc={'id' : i.id, 'name': i.name, 'duration' : i.duration, 'album_id': i.album_id, 'times_played':i.times_played, 'artist': i.artist, 'album': i.album, 'self': i.self_url}
 
     except IntegrityError:
         db.session.rollback()
         i = Cancion.query.get(encoded_name)
         print('Existe')
-        dicc={'id' : i.id, 'album_id': i.album_id, 'name': i.name, 'duration' : i.duration, 'artist' : i.artist, 'album': i.album, 'self': i.self_url}
+        dicc={'id' : i.id, 'name': i.name, 'duration' : i.duration, 'album_id': i.album_id, 'times_played':i.times_played, 'artist': i.artist, 'album': i.album, 'self': i.self_url}
         return json.dumps(dicc, ensure_ascii=False), 409
     
     return json.dumps(dicc, ensure_ascii=False), 201
