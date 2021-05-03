@@ -279,7 +279,7 @@ def create_album_database(artist_id):
         dicc={'id' : i.id, 'name': i.name, 'genre' : i.genre, 'artist' : i.artist, 'tracks':i.tracks, 'self': i.self_url}
         data = 'álbum ya existe'
         return json.dumps(data, ensure_ascii=False), 409
-
+    i = Album.query.get(encoded_name)
     dicc={'id' : i.id, 'name': i.name, 'genre' : i.genre, 'artist' : i.artist, 'tracks':i.tracks, 'self': i.self_url}
     return json.dumps(dicc, ensure_ascii=False), 201
 
