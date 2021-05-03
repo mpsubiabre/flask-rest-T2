@@ -63,7 +63,7 @@ def cut_codification(a):
 
 ############## RUTAS #############################
 
-@app.route('/', methods=['GET'])
+@app.route('https://flask-rest-tarea2.herokuapp.com/', methods=['GET'])
 def index():
     print('holaa')
     data = "API REST"
