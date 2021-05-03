@@ -538,7 +538,7 @@ def obtener_track(track_id):
 
 
     i = Cancion.query.get(track_id)
-    dicc={'id' : i.id, 'album_id': i.album_id, 'name': i.name, 'duration' : i.duration, 'artist' : i.artist, 'album': i.album, 'self': i.self_url}
+    dicc={'id' : i.id, 'name': i.name, 'duration' : i.duration, 'album_id': i.album_id, 'times_played':i.times_played, 'artist': i.artist, 'album': i.album, 'self': i.self_url}
     return json.dumps(dicc, ensure_ascii=False), 200
 
 ###################################################################
