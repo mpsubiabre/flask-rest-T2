@@ -72,7 +72,7 @@ def index():
 @app.route('/', methods=['GET'])
 def index2():
     print('holaa')
-    data = "API REST"
+    data = "API REST1"
     return json.dumps(data)
 
 ###################### ARTISTA #############################
