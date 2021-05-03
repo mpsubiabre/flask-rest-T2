@@ -80,6 +80,7 @@ def index2():
 
 @app.route('/artists', methods=['POST'])
 def create_artist():
+    print(request.method)
     print(request.is_json)
     data = request.get_json()
     key = data.keys()
@@ -129,6 +130,10 @@ def create_artist():
 
 @app.route('/artists', methods=['GET'])
 def get_artistas():
+    if request.method == 'GET':
+        print('bien')
+    else:
+        print('mal')
     all_artistas = Artista.query.all()
     all = []
     print(all_artistas)
@@ -526,7 +531,7 @@ def delete_track(track_id):
     db.session.delete(track)
     db.session.commit()
     data = 'canción eliminada'
-    return json.dumps(data, ensure_ascii=False), 200
+    return json.dumps(data, ensure_ascii=False), 204
 
 @app.route('/tracks/<track_id>', methods=['GET'])
 def obtener_track(track_id):
