@@ -13,6 +13,7 @@ import os
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/data.db'
 #app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 ############## MODELOS #############################
@@ -51,7 +52,6 @@ class Cancion(db.Model):
     album = db.Column(db.Text(200))
     self_url = db.Column(db.Text(200))
 
-db.create_all()
 
 ############## FUNCIONES #############################
 def cut_codification(a):
@@ -70,7 +70,7 @@ def index():
     return json.dumps(data)
 
 @app.route('/', methods=['GET'])
-def index():
+def index2():
     print('holaa')
     data = "API REST"
     return json.dumps(data)
