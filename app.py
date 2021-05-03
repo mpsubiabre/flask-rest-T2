@@ -266,7 +266,7 @@ def create_album_database(artist_id):
 
     path_artist = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ artist_id
     path_track = 'https://flask-rest-tarea2.herokuapp.com/albums/'+ encoded_name +'/tracks'
-    path_self = 'https://flask-rest-tarea2.herokuapp.com/artists/'+ artist_id + '/albums'
+    path_self = 'https://flask-rest-tarea2.herokuapp.com/albums/'+ encoded_name
 
     try:
         album = Album(id= encoded_name, artist_id = artist_id, name = name, genre = genre, artist = path_artist, tracks = path_track, self_url = path_self)
