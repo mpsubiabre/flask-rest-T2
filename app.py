@@ -127,10 +127,6 @@ def create_artist():
         print('Existe')
         dicc = {'id':i.id, 'name':i.name, 'age':i.age, 'albums':i.album, 'tracks':i.tracks, 'self':i.self_url}
         return json.dumps(dicc, ensure_ascii=False), 409
-    except DataError:
-        print("data")
-    except KeyError:
-        print("data")
     print(dicc)
     return json.dumps(dicc,ensure_ascii=False), 201
 
@@ -283,11 +279,7 @@ def create_album_database(artist_id):
         dicc={'id' : i.id, 'name': i.name, 'genre' : i.genre, 'artist' : i.artist, 'tracks':i.tracks, 'self': i.self_url}
         data = 'álbum ya existe'
         return json.dumps(data, ensure_ascii=False), 409
-    except DataError:
-        print("data")
-    except KeyError:
-        print("data")
-        
+
     dicc={'id' : i.id, 'name': i.name, 'genre' : i.genre, 'artist' : i.artist, 'tracks':i.tracks, 'self': i.self_url}
     return json.dumps(dicc, ensure_ascii=False), 201
 
@@ -432,10 +424,6 @@ def create_cancion_database(album_id):
         print('Existe')
         dicc={'id' : i.id, 'album_id': i.album_id, 'name': i.name, 'duration' : i.duration, 'artist' : i.artist, 'album': i.album, 'self': i.self_url}
         return json.dumps(dicc, ensure_ascii=False), 409
-    except DataError:
-        print("data")
-    except KeyError:
-        print("data")
     
     return json.dumps(dicc, ensure_ascii=False), 201
 
