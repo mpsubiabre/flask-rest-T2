@@ -287,7 +287,8 @@ def create_album_database(artist_id):
         print("data")
     except KeyError:
         print("data")
-    
+        
+    dicc={'id' : i.id, 'name': i.name, 'genre' : i.genre, 'artist' : i.artist, 'tracks':i.tracks, 'self': i.self_url}
     return json.dumps(dicc, ensure_ascii=False), 201
 
 
