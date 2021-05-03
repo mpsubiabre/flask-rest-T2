@@ -78,7 +78,7 @@ def index2():
 ###################### ARTISTA #############################
 
 
-@app.route('/flask-rest-tarea2.herokuapp.com/artists', methods=['POST'])
+@app.route('/artists', methods=['POST'])
 def create_artist():
     print(request.is_json)
     data = request.get_json()
@@ -127,7 +127,7 @@ def create_artist():
 
     return json.dumps(data), 201
 
-@app.route('/flask-rest-tarea2.herokuapp.com/artists', methods=['GET'])
+@app.route('/artists', methods=['GET'])
 def get_artistas():
     all_artistas = Artista.query.all()
     all = []
