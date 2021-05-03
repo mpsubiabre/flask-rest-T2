@@ -263,14 +263,15 @@ def create_album_database(artist_id):
         album = Album(id= encoded_name, artist_id = artist_id, name = name, genre = genre, artist = path_artist, tracks = path_track, self_url = path_self)
         db.session.add(album)
         db.session.commit() 
-        data = 'se creo un album'
+        data = 'álbum creado'
 
     except IntegrityError:
         db.session.rollback()
         i = Album.query.get(encoded_name)
         print('Existe')
         dicc={'id' : i.id, 'name': i.name, 'genre' : i.genre, 'artist' : i.artist, 'tracks':i.tracks, 'self': i.self_url}
-        return json.dumps(dicc, ensure_ascii=False), 409
+        data = 'álbum ya existe'
+        return json.dumps(data, ensure_ascii=False), 409
     except DataError:
         print("data")
     except KeyError:
