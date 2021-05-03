@@ -66,13 +66,14 @@ def cut_codification(a):
 @app.route('/', methods=['GET'])
 def index():
     print('holaa')
-    return render_template('app.html')
+    data = "API REST"
+    return json.dumps(data)
 
 ###################### ARTISTA #############################
 
+flask-rest-tarea2.herokuapp.com
 
-
-@app.route('/artists', methods=['POST'])
+@app.route('flask-rest-tarea2.herokuapp.com/artists', methods=['POST'])
 def create_artist():
     print(request.is_json)
     data = request.get_json()
@@ -121,7 +122,7 @@ def create_artist():
 
     return json.dumps(data), 201
 
-@app.route('/artists', methods=['GET'])
+@app.route('flask-rest-tarea2.herokuapp.com/artists', methods=['GET'])
 def get_artistas():
     all_artistas = Artista.query.all()
     all = []
