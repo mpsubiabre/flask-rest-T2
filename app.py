@@ -423,6 +423,7 @@ def create_cancion_database(album_id):
         db.session.add(track)
         db.session.commit()
         data = 'canción creada'
+        dicc={'id' : i.id, 'album_id': i.album_id, 'name': i.name, 'duration' : i.duration, 'artist' : i.artist, 'album': i.album, 'self': i.self_url}
 
     except IntegrityError:
         db.session.rollback()
@@ -435,7 +436,7 @@ def create_cancion_database(album_id):
     except KeyError:
         print("data")
     
-    return json.dumps(data, ensure_ascii=False), 201
+    return json.dumps(dicc, ensure_ascii=False), 201
 
 
 @app.route('/artists/<artist_id>/tracks', methods=['GET'])
